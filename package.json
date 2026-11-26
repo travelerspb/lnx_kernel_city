@@ -1,0 +1,30 @@
+{
+  "name": "lnx-kernel-city",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The Linux kernel drawn as a city: follow a read() from user space to the disk and back.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:browser": "node test/browser/smoke.mjs"
+  },
+  "dependencies": {
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.7",
+    "@types/three": "0.187.0",
+    "playwright-core": "1.65.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.8",
+    "vitest": "5.1.1"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

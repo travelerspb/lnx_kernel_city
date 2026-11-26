@@ -1,0 +1,377 @@
+{
+  "kernel": "v6.18",
+  "events": {
+    "sys_enter": {
+      "file": "tracepoints.md",
+      "anchor": "sys-enter",
+      "status": "verified"
+    },
+    "sys_exit": {
+      "file": "tracepoints.md",
+      "anchor": "sys-exit",
+      "status": "verified"
+    },
+    "func_entry": {
+      "file": "tracepoints.md",
+      "anchor": "func-entry",
+      "status": "verified"
+    },
+    "func_exit": {
+      "file": "tracepoints.md",
+      "anchor": "func-exit",
+      "status": "verified"
+    },
+    "page_cache_lookup": {
+      "file": "tracepoints.md",
+      "anchor": "page-cache-lookup",
+      "status": "verified"
+    },
+    "mm_page_alloc": {
+      "file": "tracepoints.md",
+      "anchor": "mm-page-alloc",
+      "status": "verified"
+    },
+    "mm_filemap_add_to_page_cache": {
+      "file": "tracepoints.md",
+      "anchor": "mm-filemap-add-to-page-cache",
+      "status": "verified"
+    },
+    "folio_end_read": {
+      "file": "tracepoints.md",
+      "anchor": "folio-end-read",
+      "status": "verified"
+    },
+    "block_bio_queue": {
+      "file": "tracepoints.md",
+      "anchor": "block-bio-queue",
+      "status": "verified"
+    },
+    "block_rq_insert": {
+      "file": "tracepoints.md",
+      "anchor": "block-rq-insert",
+      "status": "verified"
+    },
+    "block_rq_issue": {
+      "file": "tracepoints.md",
+      "anchor": "block-rq-issue",
+      "status": "verified"
+    },
+    "block_rq_complete": {
+      "file": "tracepoints.md",
+      "anchor": "block-rq-complete",
+      "status": "verified"
+    },
+    "hw_io_start": {
+      "file": "tracepoints.md",
+      "anchor": "hw-io-start",
+      "status": "verified"
+    },
+    "hw_io_done": {
+      "file": "tracepoints.md",
+      "anchor": "hw-io-done",
+      "status": "verified"
+    },
+    "irq_handler_entry": {
+      "file": "tracepoints.md",
+      "anchor": "irq-handler-entry",
+      "status": "verified"
+    },
+    "irq_handler_exit": {
+      "file": "tracepoints.md",
+      "anchor": "irq-handler-exit",
+      "status": "verified"
+    },
+    "softirq_raise": {
+      "file": "tracepoints.md",
+      "anchor": "softirq-raise",
+      "status": "verified"
+    },
+    "softirq_entry": {
+      "file": "tracepoints.md",
+      "anchor": "softirq-entry",
+      "status": "verified"
+    },
+    "softirq_exit": {
+      "file": "tracepoints.md",
+      "anchor": "softirq-exit",
+      "status": "verified"
+    },
+    "sched_waking": {
+      "file": "tracepoints.md",
+      "anchor": "sched-waking",
+      "status": "verified"
+    },
+    "sched_wakeup": {
+      "file": "tracepoints.md",
+      "anchor": "sched-wakeup",
+      "status": "verified"
+    },
+    "sched_switch": {
+      "file": "tracepoints.md",
+      "anchor": "sched-switch",
+      "status": "verified"
+    },
+    "copy_to_user": {
+      "file": "tracepoints.md",
+      "anchor": "copy-to-user",
+      "status": "verified"
+    }
+  },
+  "functions": {
+    "entry_SYSCALL_64": {
+      "file": "read-path.md",
+      "anchor": "entry-syscall-64",
+      "status": "verified"
+    },
+    "do_syscall_64": {
+      "file": "read-path.md",
+      "anchor": "do-syscall-64",
+      "status": "verified"
+    },
+    "x64_sys_call": {
+      "file": "read-path.md",
+      "anchor": "x64-sys-call",
+      "status": "verified"
+    },
+    "ksys_read": {
+      "file": "read-path.md",
+      "anchor": "ksys-read",
+      "status": "verified"
+    },
+    "vfs_read": {
+      "file": "read-path.md",
+      "anchor": "vfs-read",
+      "status": "verified"
+    },
+    "new_sync_read": {
+      "file": "read-path.md",
+      "anchor": "new-sync-read",
+      "status": "verified"
+    },
+    "ext4_file_read_iter": {
+      "file": "read-path.md",
+      "anchor": "ext4-file-read-iter",
+      "status": "verified"
+    },
+    "generic_file_read_iter": {
+      "file": "read-path.md",
+      "anchor": "generic-file-read-iter",
+      "status": "verified"
+    },
+    "filemap_read": {
+      "file": "read-path.md",
+      "anchor": "filemap-read",
+      "status": "verified"
+    },
+    "filemap_get_pages": {
+      "file": "read-path.md",
+      "anchor": "filemap-get-pages",
+      "status": "verified"
+    },
+    "filemap_get_read_batch": {
+      "file": "read-path.md",
+      "anchor": "filemap-get-read-batch",
+      "status": "verified"
+    },
+    "page_cache_sync_ra": {
+      "file": "read-path.md",
+      "anchor": "page-cache-sync-ra",
+      "status": "verified"
+    },
+    "page_cache_ra_order": {
+      "file": "read-path.md",
+      "anchor": "page-cache-ra-order",
+      "status": "verified"
+    },
+    "filemap_alloc_folio": {
+      "file": "read-path.md",
+      "anchor": "filemap-alloc-folio",
+      "status": "verified"
+    },
+    "filemap_add_folio": {
+      "file": "read-path.md",
+      "anchor": "filemap-add-folio",
+      "status": "verified"
+    },
+    "read_pages": {
+      "file": "read-path.md",
+      "anchor": "read-pages",
+      "status": "verified"
+    },
+    "ext4_readahead": {
+      "file": "read-path.md",
+      "anchor": "ext4-readahead",
+      "status": "verified"
+    },
+    "ext4_mpage_readpages": {
+      "file": "read-path.md",
+      "anchor": "ext4-mpage-readpages",
+      "status": "verified"
+    },
+    "submit_bio": {
+      "file": "read-path.md",
+      "anchor": "submit-bio",
+      "status": "verified"
+    },
+    "submit_bio_noacct": {
+      "file": "read-path.md",
+      "anchor": "submit-bio-noacct",
+      "status": "verified"
+    },
+    "submit_bio_noacct_nocheck": {
+      "file": "read-path.md",
+      "anchor": "submit-bio-noacct-nocheck",
+      "status": "verified"
+    },
+    "blk_mq_submit_bio": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-submit-bio",
+      "status": "verified"
+    },
+    "blk_finish_plug": {
+      "file": "read-path.md",
+      "anchor": "blk-finish-plug",
+      "status": "verified"
+    },
+    "blk_mq_flush_plug_list": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-flush-plug-list",
+      "status": "verified"
+    },
+    "dd_insert_request": {
+      "file": "read-path.md",
+      "anchor": "dd-insert-request",
+      "status": "verified"
+    },
+    "blk_mq_run_hw_queue": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-run-hw-queue",
+      "status": "verified"
+    },
+    "blk_mq_dispatch_rq_list": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-dispatch-rq-list",
+      "status": "verified"
+    },
+    "virtio_queue_rq": {
+      "file": "read-path.md",
+      "anchor": "virtio-queue-rq",
+      "status": "verified"
+    },
+    "blk_mq_start_request": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-start-request",
+      "status": "verified"
+    },
+    "virtqueue_kick": {
+      "file": "read-path.md",
+      "anchor": "virtqueue-kick",
+      "status": "drop"
+    },
+    "virtqueue_notify": {
+      "file": "read-path.md",
+      "anchor": "virtqueue-notify",
+      "status": "verified"
+    },
+    "filemap_update_page": {
+      "file": "read-path.md",
+      "anchor": "filemap-update-page",
+      "status": "verified"
+    },
+    "folio_wait_bit_common": {
+      "file": "read-path.md",
+      "anchor": "folio-wait-bit-common",
+      "status": "verified"
+    },
+    "io_schedule": {
+      "file": "read-path.md",
+      "anchor": "io-schedule",
+      "status": "verified"
+    },
+    "__schedule": {
+      "file": "read-path.md",
+      "anchor": "schedule",
+      "status": "verified"
+    },
+    "vring_interrupt": {
+      "file": "read-path.md",
+      "anchor": "vring-interrupt",
+      "status": "verified"
+    },
+    "virtblk_done": {
+      "file": "read-path.md",
+      "anchor": "virtblk-done",
+      "status": "verified"
+    },
+    "blk_mq_complete_request": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-complete-request",
+      "status": "verified"
+    },
+    "blk_mq_raise_softirq": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-raise-softirq",
+      "status": "verified"
+    },
+    "blk_done_softirq": {
+      "file": "read-path.md",
+      "anchor": "blk-done-softirq",
+      "status": "verified"
+    },
+    "virtblk_request_done": {
+      "file": "read-path.md",
+      "anchor": "virtblk-request-done",
+      "status": "verified"
+    },
+    "blk_mq_end_request": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-end-request",
+      "status": "verified"
+    },
+    "blk_update_request": {
+      "file": "read-path.md",
+      "anchor": "blk-mq-end-request",
+      "status": "verified"
+    },
+    "bio_endio": {
+      "file": "read-path.md",
+      "anchor": "bio-endio",
+      "status": "verified"
+    },
+    "mpage_end_io": {
+      "file": "read-path.md",
+      "anchor": "mpage-end-io",
+      "status": "verified"
+    },
+    "folio_end_read": {
+      "file": "read-path.md",
+      "anchor": "folio-end-read",
+      "status": "verified"
+    },
+    "folio_wake_bit": {
+      "file": "read-path.md",
+      "anchor": "folio-wake-bit",
+      "status": "verified"
+    },
+    "try_to_wake_up": {
+      "file": "read-path.md",
+      "anchor": "try-to-wake-up",
+      "status": "verified"
+    },
+    "copy_page_to_iter": {
+      "file": "read-path.md",
+      "anchor": "copy-page-to-iter",
+      "status": "verified"
+    },
+    "syscall_exit_work": {
+      "file": "read-path.md",
+      "anchor": "syscall-exit-work",
+      "status": "verified"
+    },
+    "ksys_pread64": {
+      "file": "read-path.md",
+      "anchor": "ksys-pread64",
+      "status": "verified"
+    }
+  }
+}

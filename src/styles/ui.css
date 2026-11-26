@@ -1,0 +1,701 @@
+/* UI shell styles. Colours are tokens on :root, light by default, dark under
+   prefers-color-scheme or [data-theme="dark"]. [data-theme="light"] forces
+   light. The meaning tokens (--lkc-task-*, --lkc-cpu-*, --lkc-page-*,
+   --lkc-cargo-*) mirror PALETTE in src/world/palette.ts, which the UI may
+   not import. Keep them in step. */
+
+:root {
+  --lkc-bg: #f6f7f9;
+  --lkc-panel: rgb(255 255 255 / 0.92);
+  --lkc-panel-solid: #fff;
+  --lkc-fg: #1b1f24;
+  --lkc-muted: #5b6470;
+  --lkc-border: #d3d8de;
+  --lkc-accent: #0b62d6;
+  --lkc-accent-fg: #ffffff;
+  --lkc-row-current: #fff2c2;
+  --lkc-row-selected: #d7e7ff;
+  --lkc-row-hover: #eef1f5;
+  --lkc-focus: #0b62d6;
+
+  --lkc-task-user: #2563c9;
+  --lkc-task-kernel: #c2570c;
+  --lkc-task-runnable: #8a6d00;
+  --lkc-task-sleeping: #6b7480;
+  --lkc-cpu-user: #2563c9;
+  --lkc-cpu-kernel: #c2570c;
+  --lkc-cpu-hardirq: #c8102e;
+  --lkc-cpu-softirq: #7e3fb0;
+  --lkc-cpu-idle: #6b7480;
+  --lkc-page-absent: #7c8591;
+  --lkc-page-locked: #b3261e;
+  --lkc-page-uptodate: #16803c;
+  --lkc-cargo-inflight: #0b7f8f;
+  --lkc-cargo-done: #16803c;
+  --lkc-cargo-work: #0b7f8f;
+  --lkc-glyph: #ffffff;
+
+  --lkc-tier-T: #2f6fd6;
+  --lkc-tier-P: #7a5af5;
+  --lkc-tier-S: #8a5a00;
+
+  /* Width of the event log column. index.html sizes the map canvas to the
+     space left of it, so the log never covers the map. */
+  --lkc-log-w: clamp(24rem, 40vw, 44rem);
+
+  --lkc-font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --lkc-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --lkc-bg: #0f1216;
+    --lkc-panel: rgb(24 28 34 / 0.92);
+  --lkc-panel-solid: rgb(24 28 34);
+    --lkc-fg: #e6e9ed;
+    --lkc-muted: #9aa4b0;
+    --lkc-border: #343b45;
+    --lkc-accent: #5a9bff;
+    --lkc-accent-fg: #0f1216;
+    --lkc-row-current: #4a3f12;
+    --lkc-row-selected: #1e3a66;
+    --lkc-row-hover: #222831;
+    --lkc-focus: #7ab0ff;
+
+    --lkc-task-user: #5c9dff;
+    --lkc-task-kernel: #ff9640;
+    --lkc-task-runnable: #e8c547;
+    --lkc-task-sleeping: #8e99a7;
+    --lkc-cpu-user: #5c9dff;
+    --lkc-cpu-kernel: #ff9640;
+    --lkc-cpu-hardirq: #ff5468;
+    --lkc-cpu-softirq: #c58aff;
+    --lkc-cpu-idle: #8e99a7;
+    --lkc-page-absent: #7f8996;
+    --lkc-page-locked: #ff6f61;
+    --lkc-page-uptodate: #3fcf78;
+    --lkc-cargo-inflight: #33d1e0;
+    --lkc-cargo-done: #3fcf78;
+    --lkc-cargo-work: #33d1e0;
+    --lkc-glyph: #0a0c0f;
+
+    --lkc-tier-T: #6ea0ff;
+    --lkc-tier-P: #a891ff;
+    --lkc-tier-S: #e0b050;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --lkc-bg: #0f1216;
+  --lkc-panel: rgb(24 28 34 / 0.92);
+  --lkc-panel-solid: rgb(24 28 34);
+  --lkc-fg: #e6e9ed;
+  --lkc-muted: #9aa4b0;
+  --lkc-border: #343b45;
+  --lkc-accent: #5a9bff;
+  --lkc-accent-fg: #0f1216;
+  --lkc-row-current: #4a3f12;
+  --lkc-row-selected: #1e3a66;
+  --lkc-row-hover: #222831;
+  --lkc-focus: #7ab0ff;
+
+  --lkc-task-user: #5c9dff;
+  --lkc-task-kernel: #ff9640;
+  --lkc-task-runnable: #e8c547;
+  --lkc-task-sleeping: #8e99a7;
+  --lkc-cpu-user: #5c9dff;
+  --lkc-cpu-kernel: #ff9640;
+  --lkc-cpu-hardirq: #ff5468;
+  --lkc-cpu-softirq: #c58aff;
+  --lkc-cpu-idle: #8e99a7;
+  --lkc-page-absent: #7f8996;
+  --lkc-page-locked: #ff6f61;
+  --lkc-page-uptodate: #3fcf78;
+  --lkc-cargo-inflight: #33d1e0;
+  --lkc-cargo-done: #3fcf78;
+  --lkc-cargo-work: #33d1e0;
+  --lkc-glyph: #0a0c0f;
+
+  --lkc-tier-T: #6ea0ff;
+  --lkc-tier-P: #a891ff;
+  --lkc-tier-S: #e0b050;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--lkc-bg);
+  color: var(--lkc-fg);
+}
+
+/* ------------------------------------------------------------------ shell */
+
+.lkc-ui {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) 1fr var(--lkc-log-w);
+  grid-template-rows: auto 1fr auto auto;
+  grid-template-areas:
+    'bar bar bar'
+    '. . log'
+    'insp . log'
+    'legend . log';
+  gap: 0.5rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  pointer-events: none; /* the canvas underneath stays clickable */
+  font: 13px/1.4 var(--lkc-font);
+  color: var(--lkc-fg);
+}
+
+.lkc-ui *,
+.lkc-ui *::before,
+.lkc-ui *::after {
+  box-sizing: border-box;
+}
+
+.lkc-panel {
+  pointer-events: auto;
+  background: var(--lkc-panel);
+  border: 1px solid var(--lkc-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  backdrop-filter: blur(6px);
+  min-width: 0;
+}
+
+.lkc-ui h2 {
+  font-size: 0.95rem;
+  margin: 0;
+  display: inline;
+}
+
+.lkc-ui h3 {
+  font-size: 0.8rem;
+  margin: 0.5rem 0 0.25rem;
+  color: var(--lkc-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.lkc-muted {
+  color: var(--lkc-muted);
+}
+
+.lkc-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.lkc-ui :focus-visible {
+  outline: 2px solid var(--lkc-focus);
+  outline-offset: 2px;
+}
+
+.lkc-ui summary {
+  cursor: pointer;
+}
+
+/* -------------------------------------------------------------- transport */
+
+.lkc-bar {
+  grid-area: bar;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+.lkc-transport {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.lkc-btn {
+  font: inherit;
+  color: var(--lkc-fg);
+  background: transparent;
+  border: 1px solid var(--lkc-border);
+  border-radius: 4px;
+  padding: 0.25rem 0.75rem;
+  min-height: 2rem;
+  cursor: pointer;
+}
+
+.lkc-btn:hover:not(:disabled) {
+  background: var(--lkc-row-hover);
+}
+
+.lkc-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.lkc-btn-play {
+  min-width: 4.5rem;
+  background: var(--lkc-accent);
+  border-color: var(--lkc-accent);
+  color: var(--lkc-accent-fg);
+}
+
+.lkc-btn-play:hover:not(:disabled) {
+  background: var(--lkc-accent);
+  filter: brightness(1.1);
+}
+
+.lkc-btn-small {
+  padding: 0 0.5rem;
+  min-height: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.lkc-modes {
+  display: flex;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.lkc-mode {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--lkc-border);
+  margin-left: -1px;
+  padding: 0.25rem 0.6rem;
+  min-height: 2rem;
+  cursor: pointer;
+}
+
+.lkc-mode:first-of-type {
+  border-radius: 4px 0 0 4px;
+}
+
+.lkc-mode:last-of-type {
+  border-radius: 0 4px 4px 0;
+}
+
+.lkc-mode input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lkc-mode:has(input:checked) {
+  background: var(--lkc-accent);
+  border-color: var(--lkc-accent);
+  color: var(--lkc-accent-fg);
+}
+
+.lkc-mode:has(input:focus-visible) {
+  outline: 2px solid var(--lkc-focus);
+  outline-offset: 2px;
+}
+
+.lkc-speed {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.lkc-speed input:disabled + .lkc-speed-out {
+  opacity: 0.5;
+}
+
+.lkc-speed-out {
+  font-family: var(--lkc-mono);
+  font-size: 0.8rem;
+  min-width: 11rem;
+}
+
+.lkc-clock {
+  margin-left: auto;
+  font-family: var(--lkc-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.lkc-clock-now {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.lkc-clock-skip {
+  color: var(--lkc-tier-S);
+}
+
+/* -------------------------------------------------------------------- log */
+
+.lkc-log {
+  grid-area: log;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: 100%;
+  align-self: start;
+}
+
+.lkc-log[open] {
+  align-self: stretch;
+}
+
+.lkc-log-tools {
+  margin: 0.4rem 0;
+}
+
+.lkc-log-tools select {
+  font: inherit;
+  color: var(--lkc-fg);
+  background: var(--lkc-panel);
+  border: 1px solid var(--lkc-border);
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+}
+
+.lkc-log-scroll {
+  overflow: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.lkc-log[open] > .lkc-log-scroll {
+  height: calc(100vh - 12rem);
+}
+
+.lkc-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--lkc-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.lkc-log-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  /* Solid, so rows scrolling under the header do not show through. */
+  background: var(--lkc-panel-solid);
+  text-align: left;
+  font-weight: 600;
+  color: var(--lkc-muted);
+  border-bottom: 1px solid var(--lkc-border);
+  padding: 0.15rem 0.35rem;
+}
+
+.lkc-log-table td {
+  padding: 0.1rem 0.35rem;
+  white-space: nowrap;
+  border-bottom: 1px solid color-mix(in srgb, var(--lkc-border) 40%, transparent);
+}
+
+.lkc-col-detail {
+  white-space: normal;
+}
+
+/* Fixed layout so seq, time, task, type and tier always fit; detail and
+   evidence take what is left and clip. */
+.lkc-log-table { table-layout: fixed; }
+.lkc-log-table th.lkc-col-seq { width: 3em; }
+.lkc-log-table th.lkc-col-time { width: 7.4em; }
+.lkc-log-table th.lkc-col-cpu { width: 2.8em; }
+.lkc-log-table th.lkc-col-task { width: 7.5em; }
+.lkc-log-table th.lkc-col-type { width: 9.5em; }
+.lkc-log-table th.lkc-col-tier { width: 3.8em; }
+.lkc-log-table th.lkc-col-evidence { width: 2.6em; }
+.lkc-log-table th { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lkc-log-table th.lkc-col-tier,
+.lkc-log-table td.lkc-col-tier,
+.lkc-log-table th.lkc-col-evidence,
+.lkc-log-table td.lkc-col-evidence { text-align: center; }
+
+/* Narrow log column: drop cpu (the task cell and inspector still show it). */
+@media (max-width: 1279px) {
+  .lkc-log-table .lkc-col-cpu { display: none; }
+}
+.lkc-log-table td { overflow: hidden; text-overflow: ellipsis; }
+.lkc-log-table td.lkc-col-detail { white-space: nowrap; }
+
+.lkc-col-seq,
+.lkc-col-time,
+.lkc-col-cpu {
+  text-align: right;
+}
+
+.lkc-row {
+  cursor: pointer;
+}
+
+.lkc-row:hover {
+  background: var(--lkc-row-hover);
+}
+
+.lkc-row.lkc-current {
+  background: var(--lkc-row-current);
+  box-shadow: inset 3px 0 0 var(--lkc-task-kernel);
+}
+
+.lkc-row.lkc-selected {
+  background: var(--lkc-row-selected);
+  box-shadow: inset 3px 0 0 var(--lkc-accent);
+}
+
+.lkc-tier {
+  display: inline-block;
+  min-width: 1.4em;
+  text-align: center;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--lkc-bg);
+}
+
+.lkc-tier-T {
+  background: var(--lkc-tier-T);
+}
+
+/* Shape differs as well as colour: P is a pill, S is outlined. */
+.lkc-tier-P {
+  background: var(--lkc-tier-P);
+  border-radius: 1em;
+}
+
+.lkc-tier-S {
+  background: transparent;
+  color: var(--lkc-tier-S);
+  outline: 1.5px dashed var(--lkc-tier-S);
+  outline-offset: -1.5px;
+}
+
+.lkc-ev {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--lkc-accent);
+}
+
+a.lkc-ev:hover {
+  text-decoration: underline;
+}
+
+.lkc-ev-not-verified {
+  color: var(--lkc-task-kernel);
+}
+
+.lkc-ev-drop,
+.lkc-ev-missing {
+  color: var(--lkc-cpu-hardirq);
+}
+
+/* -------------------------------------------------------------- inspector */
+
+.lkc-inspector {
+  grid-area: insp;
+  align-self: end;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.lkc-insp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lkc-insp-sub,
+.lkc-insp-note {
+  margin: 0.25rem 0;
+}
+
+.lkc-insp-sub {
+  font-family: var(--lkc-mono);
+}
+
+.lkc-insp-fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.1rem 0.75rem;
+  margin: 0.4rem 0 0;
+}
+
+.lkc-insp-fields dt {
+  color: var(--lkc-muted);
+}
+
+.lkc-insp-fields dd {
+  margin: 0;
+  font-family: var(--lkc-mono);
+  overflow-wrap: anywhere;
+}
+
+.lkc-insp-fields a {
+  color: var(--lkc-accent);
+}
+
+.lkc-link {
+  font: inherit;
+  color: var(--lkc-accent);
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* ----------------------------------------------------------------- legend */
+
+.lkc-legend {
+  grid-area: legend;
+  align-self: end;
+}
+
+.lkc-legend-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lkc-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.1rem 0;
+}
+
+.lkc-legend-shape {
+  flex: none;
+}
+
+/* ------------------------------------------------------------ phone width */
+
+@media (max-width: 719px) {
+  .lkc-ui {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto auto;
+    grid-template-areas:
+      'bar'
+      '.'
+      'insp'
+      'legend'
+      'log';
+    font-size: 14px;
+    /* Room for the disclaimer line (#status) under the panels. */
+    padding-bottom: 1.8rem;
+  }
+
+  .lkc-clock {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .lkc-speed-out {
+    min-width: 0;
+  }
+
+  .lkc-log[open] > .lkc-log-scroll {
+    height: 40vh;
+  }
+
+  .lkc-col-cpu,
+  .lkc-col-type {
+    display: none;
+  }
+
+  .lkc-inspector {
+    max-height: 30vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lkc-panel {
+    backdrop-filter: none;
+  }
+}
+
+/* ------------------------------------------------------- inspector: about */
+
+.lkc-insp-about p {
+  margin: 0 0 0.5rem;
+}
+
+.lkc-insp-about h3 {
+  margin: 0.6rem 0 0.2rem;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--lkc-muted);
+}
+
+.lkc-about-summary {
+  font-weight: 600;
+}
+
+.lkc-about-code code {
+  font-family: var(--lkc-mono);
+  font-size: 12px;
+}
+
+.lkc-about-list {
+  margin: 0 0 0.5rem;
+  padding-left: 1.1rem;
+  font-family: var(--lkc-mono);
+  font-size: 12px;
+}
+
+.lkc-about-list a,
+.lkc-about-related .lkc-link {
+  color: var(--lkc-accent);
+}
+
+.lkc-inspector {
+  max-height: 40vh;
+  overflow: auto;
+}
+
+/* Nothing selected: one quiet line, so the map under it stays visible. */
+.lkc-inspector.lkc-insp-empty {
+  padding: 0.3rem 0.75rem;
+}
+
+.lkc-inspector.lkc-insp-empty .lkc-insp-head {
+  display: none;
+}
+
+.lkc-inspector.lkc-insp-empty .lkc-insp-note {
+  margin: 0;
+  font-size: 12px;
+}
+
+/* ----------------------------------------------------------------- tooltip */
+
+.lkc-tip {
+  position: fixed;
+  z-index: 10;
+  max-width: 22rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.4rem 0.55rem;
+  background: var(--lkc-panel);
+  color: var(--lkc-fg);
+  border: 1px solid var(--lkc-border);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.18);
+  pointer-events: none;
+  font-size: 12px;
+}
+
+.lkc-tip[hidden] {
+  display: none;
+}
+
+.lkc-tip-hint {
+  font-size: 11px;
+}
